@@ -1,12 +1,37 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head>
-    <meta charset="UTF-8"/>
-    <title>Coding Events</title>
-</head>
+<head th:replace="fragments :: head"></head>
+<body class="container">
+
+<header th:replace="fragments :: header"></header> <!-- added latest video -->
+
+<!-- omitted in latest video:
+<h1>AllEvents</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<p th:unless="${events} and ${events.size()}">No Events!</p>
+-->
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+        </tr>
+    </thead>
+    <tr th:each="event : ${events}">
+        <td th:text="${event}"></td>
+    </tr>
+</table>
+
+</body>
+</html>
+<!--
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
 <body>
 
-<h1>All Events</h1>
+<header th:replace="fragments :: header"></header>
 
 <ul>
     <th:block th:each="event : ${events}">
@@ -16,3 +41,4 @@
 
 </body>
 </html>
+-->
