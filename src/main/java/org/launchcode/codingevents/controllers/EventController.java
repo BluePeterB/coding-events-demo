@@ -18,14 +18,19 @@ public class EventController {
     @GetMapping
     //@ResponseBody  // debug only
     public String displayAllEvents(Model model) {
+<<<<<<< HEAD
         System.out.println("InGetMapNull");
         //System.out.println(events.size());
+=======
+        model.addAttribute("title", "All Events");
+>>>>>>> 7086f8331ed4f41eb1b85d8cc9a08683d726c89b
         model.addAttribute("events", events);
         return "events/index";
     }
 
     //lives at /events/create
     @GetMapping("create")
+<<<<<<< HEAD
     public String renderCreateEventForm() {
         System.out.println("InGetMap");
         return "events/create";
@@ -44,6 +49,8 @@ public class EventController {
   /*
     //lives at /events/create
     @GetMapping("create")
+=======
+>>>>>>> 7086f8331ed4f41eb1b85d8cc9a08683d726c89b
     public String displayCreateEventForm(Model model) {
         model.addAttribute("title", "Create Event");
         return "events/create";
