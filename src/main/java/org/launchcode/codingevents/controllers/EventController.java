@@ -19,6 +19,7 @@ public class EventController {
 
     @GetMapping
     public String displayAllEvents(Model model) {
+        System.out.println("InDisplayAllEvents");
         model.addAttribute("title", "All Events");
         model.addAttribute("events", EventData.getAll());
         return "events/index";

@@ -11,6 +11,8 @@ public class HomeController {
 
     @GetMapping
     public String index() {
+
+        System.out.println("InIndex");
         return "index";
     }
 
