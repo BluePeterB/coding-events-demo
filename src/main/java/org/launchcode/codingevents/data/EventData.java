@@ -9,7 +9,8 @@ import java.util.Map;
 /**
  * Created by Chris Bay
  */
-public class EventData {
+public class EventData {   //with persistence this class no longer used and can be deleted.
+                            // EventRepository being used instead.
 
     private static final Map<Integer, Event> events = new HashMap<>();
 

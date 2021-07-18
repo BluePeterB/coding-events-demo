@@ -1,5 +1,8 @@
 package org.launchcode.codingevents.models;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -8,10 +11,15 @@ import java.util.Objects;
 /**
  * Created by Chris Bay
  */
-public class Event {
+@Entity  //For persistence. Hibernate scans this app looking for @Entity. Then creates in SQL a table ...
+public class Event {   // called Event (if not already present) and adds a column for each field below.
+                        // this was enabled by the setting in application.properties :-
+                        // spring.jpa.hibernate.ddl-auto = update
 
+    @Id   //For persistence
+    @GeneratedValue   //For persistence lets DB update the ID*
     private int id;
-    private static int nextId = 1;
+    //private static int nextId = 1;  // *so for persistance this line not now needed
 
     @NotBlank(message = "Name is required")
     @Size(min = 3, max = 50, message = "Name must be between 3 and 50 characters")
@@ -19,10 +27,6 @@ public class Event {
 
     @Size(max = 500, message = "Description too long!")
     private String description;
-
-    @NotBlank(message = "Email is required")
-    @Email(message = "Invalid email. Try again.")
-    private String contactEmail;
 
     private EventType type;
 
@@ -35,9 +39,19 @@ public class Event {
     }
 
     public Event() {
-        this.id = nextId;
-        nextId++;
+        // this.id = nextId; // for persistance this line not now needed
+       // nextId++;  // for persistance this line not now needed
     }
+
+    @NotBlank(message = "Email is required")
+    @Email(message = "Invalid email. Try again.")
+    private String contactEmail;
+
+
+
+
+
+
 
     public String getName() {
         return name;
