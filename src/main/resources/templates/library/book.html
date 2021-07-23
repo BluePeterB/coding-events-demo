@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+
+<header th:replace="fragments :: header"></header>
+
+<form action="/library/book" method="post">  <!-- when user hits submit, post request sent to the
+                                            controller method which responds to the path library.books -->
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Book ID</th>
+        <th>Author IDe</th>
+        <th>Title</th>
+        <th>ISBN</th>
+        <th>Available</th>
+        <th>Genre ID</th>
+        <th>Select</th>
+    </tr>
+    </thead>
+    <tr th:each="book : ${books}">
+        <td th:text="${book.book_id}"></td>
+        <td th:text="${book.author_id}"></td>
+        <td th:text="${book.title}"></td>
+        <td th:text="${book.isbn}"></td>
+        <td th:text="${book.available}"></td>
+        <td th:text="${book.genre_id}"></td>
+        <td><input type="radio" name="bookId" th:value="${book.book_id}" class="form-control"></td>
+
+    </tr>
+</table>
+    <input type="submit" value="Enter Selection" class="btn btn-success">
+</form>
+</body>
+</html>

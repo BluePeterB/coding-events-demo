@@ -12,7 +12,7 @@ public class HomeController {
     @GetMapping
     public String index() {
 
-        System.out.println("InIndex");
+        System.out.println("InHomeControllerIndex");
         return "index";
     }
 

@@ -1,6 +1,6 @@
 package org.launchcode.codingevents.controllers;
 
-import org.launchcode.codingevents.data.EventData;
+//import org.launchcode.codingevents.data.EventData; eventdata no longer used
 import org.launchcode.codingevents.data.EventRepository;
 import org.launchcode.codingevents.models.Event;
 import org.launchcode.codingevents.models.EventType;
@@ -35,6 +35,7 @@ public class EventController {
 
     @GetMapping("create")
     public String displayCreateEventForm(Model model) {
+        System.out.println("InGetMappingCreate");
         model.addAttribute("title", "Create Event");
         model.addAttribute(new Event());
         model.addAttribute("types", EventType.values());
@@ -44,6 +45,7 @@ public class EventController {
     @PostMapping("create")
     public String processCreateEventForm(@ModelAttribute @Valid Event newEvent,
                                          Errors errors, Model model) {
+        System.out.println("InPostMappingCreate");
         if(errors.hasErrors()) {
             model.addAttribute("title", "Create Event");
             return "events/create";
@@ -72,7 +74,7 @@ public class EventController {
             }
         }
 
-        return "redirect:";
+        return "redirect:";  //returns to root.
     }
 
 }
